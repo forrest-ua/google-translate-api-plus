@@ -1,3 +1,4 @@
+'use strict';
 import test from 'ava';
 import languages from './languages';
 
