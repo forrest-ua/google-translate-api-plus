@@ -1,7 +1,7 @@
 import test from 'ava';
-
 import languages from './languages';
-import translate from './index';
+
+const translate = require('./index')();
 
 test('translate without any options', async t => {
     try {

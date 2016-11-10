@@ -2,13 +2,13 @@ var querystring = require('querystring');
 
 var got = require('got');
 var safeEval = require('safe-eval');
-var token = require('google-translate-token');
-
 var languages = require('./languages');
+
+var token;
+let baseUrl = 'https://translate.google.com';
 
 function translate(text, opts) {
     opts = opts || {};
-
     var e;
     [opts.from, opts.to].forEach(function (lang) {
         if (lang && !languages.isSupported(lang)) {
@@ -18,6 +18,7 @@ function translate(text, opts) {
         }
     });
     if (e) {
+        console.log(e);
         return new Promise(function (resolve, reject) {
             reject(e);
         });
@@ -25,12 +26,11 @@ function translate(text, opts) {
 
     opts.from = opts.from || 'auto';
     opts.to = opts.to || 'en';
-
     opts.from = languages.getCode(opts.from);
     opts.to = languages.getCode(opts.to);
-
     return token.get(text).then(function (token) {
-        var url = 'https://translate.google.com/translate_a/single';
+        console.log(token);
+        var url = `${baseUrl}/translate_a/single`;
         var data = {
             client: 't',
             sl: opts.from,
@@ -113,5 +113,12 @@ function translate(text, opts) {
     });
 }
 
-module.exports = translate;
+function getTranslate(net = 'com') {
+    token = require('google-translate-token-plus')(net);
+
+    baseUrl = `https://translate.google.${net}`;
+    return translate;
+}
+
+module.exports = getTranslate;
 module.exports.languages = languages;

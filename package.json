@@ -1,7 +1,7 @@
 {
-  "name": "google-translate-api",
-  "version": "2.2.2",
-  "description": "A free and unlimited API for Google Translate",
+  "name": "google-translate-api-plus",
+  "version": "1.0.0",
+  "description": "A free and unlimited API for Google Translate ,supporting CHINA network",
   "main": "index.js",
   "scripts": {
     "test": "xo && nyc ava",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/matheuss/google-translate-api.git"
+    "url": "https://github.com/jerry-i/google-translate-api-plus.git"
   },
   "keywords": [
     "translate",
@@ -21,18 +21,16 @@
     "language"
   ],
   "author": {
-    "name": "Matheus Fernandes",
-    "email": "npm@matheus.top",
-    "url": "http://matheus.top"
+    "email": "jerry_ii@outlook.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matheuss/google-translate-api/issues"
+    "url": "https://github.com/jerry-i/google-translate-api-plus/issues"
   },
-  "homepage": "https://github.com/matheuss/google-translate-api#readme",
+  "homepage": "https://github.com/jerry-i/google-translate-api-plus#readme",
   "dependencies": {
     "configstore": "^2.0.0",
-    "google-translate-token": "latest",
+    "google-translate-token-plus": "latest",
     "got": "^6.3.0",
     "safe-eval": "^0.3.0"
   },
