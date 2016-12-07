@@ -43,14 +43,17 @@ function translate(text, opts) {
             otf: 1,
             ssel: 0,
             tsel: 0,
-            kc: 7,
-            q: text
+            kc: 7
         };
         data[token.name] = token.value;
 
-        return url + '?' + querystring.stringify(data);
-    }).then(function (url) {
-        return got(url).then(function (res) {
+        let queryUrl = url + '?' + querystring.stringify(data);
+        return {
+          url: queryUrl,
+          text: text
+        };
+    }).then(function ({url, text}) {
+        return got(url, {method: 'POST', body: {q: text}}).then(function (res) {
             var result = {
                 text: '',
                 from: {
