@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jerry-i/google-translate-api-plus.git"
+    "url": "https://github.com/forrest-ua/google-translate-api-plus.git"
   },
   "keywords": [
     "translate",
@@ -20,19 +20,17 @@
     "free",
     "language"
   ],
-  "author": {
-    "email": "jerry_ii@outlook.com"
-  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jerry-i/google-translate-api-plus/issues"
+    "url": "https://github.com/forrest-ua/google-translate-api-plus/issues"
   },
-  "homepage": "https://github.com/jerry-i/google-translate-api-plus#readme",
+  "homepage": "https://github.com/forrest-ua/google-translate-api-plus#readme",
   "dependencies": {
     "configstore": "^2.0.0",
     "google-translate-token-plus": "latest",
     "got": "^6.3.0",
-    "safe-eval": "^0.3.0"
+    "safe-eval": "^0.3.0",
+    "lodash": "4.17.4"
   },
   "devDependencies": {
     "ava": "^0.15.2",

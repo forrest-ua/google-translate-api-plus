@@ -4,6 +4,7 @@ var querystring = require('querystring');
 var got = require('got');
 var safeEval = require('safe-eval');
 var languages = require('./languages');
+var _ = require('lodash');
 
 var token;
 let baseUrl = 'https://translate.google.com';
@@ -25,6 +26,7 @@ function translate(text, opts) {
         });
     }
 
+    opts.gotOptions = opts.gotOptions || {};
     opts.from = opts.from || 'auto';
     opts.to = opts.to || 'en';
     opts.from = languages.getCode(opts.from);
@@ -53,7 +55,11 @@ function translate(text, opts) {
           text: text
         };
     }).then(function ({url, text}) {
-        return got(url, {method: 'POST', body: {q: text}}).then(function (res) {
+        let options = _.merge(
+            {method: 'POST', body: {q: text}},
+            opts.gotOptions
+        )
+        return got(url, options).then(function (res) {
             var result = {
                 text: '',
                 from: {
